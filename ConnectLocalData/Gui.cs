@@ -17,26 +17,26 @@ namespace ConnectLocalData
             InitializeComponent();
         }
 
-        private void customersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void artikliBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
-            this.customersBindingSource.EndEdit();
+            this.artikliBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.sampleDatabaseDataSet);
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Gui_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'sampleDatabaseDataSet.Customers' table. You can move, or remove it, as needed.
-            this.customersTableAdapter.Fill(this.sampleDatabaseDataSet.Customers);
+            // TODO: This line of code loads data into the 'sampleDatabaseDataSet.Artikli' table. You can move, or remove it, as needed.
+            this.artikliTableAdapter.Fill(this.sampleDatabaseDataSet.Artikli);
 
         }
 
-        private void fillByNameToolStripButton_Click(object sender, EventArgs e)
+        private void fillByArtikal1ToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.customersTableAdapter.FillByName(this.sampleDatabaseDataSet.Customers, contactNameToolStripTextBox.Text);
+                this.artikliTableAdapter.FillByArtikal1(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
             }
             catch (System.Exception ex)
             {
@@ -45,11 +45,11 @@ namespace ConnectLocalData
 
         }
 
-        private void reset1ToolStripButton_Click(object sender, EventArgs e)
+        private void resetToolStripButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this.customersTableAdapter.Reset1(this.sampleDatabaseDataSet.Customers);
+                this.artikliTableAdapter.Reset(this.sampleDatabaseDataSet.Artikli);
             }
             catch (System.Exception ex)
             {
@@ -58,9 +58,10 @@ namespace ConnectLocalData
 
         }
 
-        private void customersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void AboutButton_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Program razvili:\nMiloš Mandarić i Vladimir Budinčić", "O programu");
         }
+  
     }
 }
