@@ -41,8 +41,6 @@ namespace ConnectLocalData
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.artikalToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fillByArtikal1ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.artikliDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,8 +102,6 @@ namespace ConnectLocalData
             this.toolStripComboBox1,
             this.artikalToolStripTextBox,
             this.fillByArtikal1ToolStripButton,
-            this.toolStripSeparator1,
-            this.toolStripButton1,
             this.toolStripButton2});
             this.fillByArtikal1ToolStrip.Location = new System.Drawing.Point(3, 3);
             this.fillByArtikal1ToolStrip.Name = "fillByArtikal1ToolStrip";
@@ -123,9 +119,10 @@ namespace ConnectLocalData
             // 
             // artikalToolStripTextBox
             // 
+            this.artikalToolStripTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.artikalToolStripTextBox.Name = "artikalToolStripTextBox";
-            this.artikalToolStripTextBox.Size = new System.Drawing.Size(100, 25);
-            this.artikalToolStripTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
+            this.artikalToolStripTextBox.Size = new System.Drawing.Size(200, 25);
+            this.artikalToolStripTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_KeyDown);
             // 
             // fillByArtikal1ToolStripButton
             // 
@@ -134,21 +131,6 @@ namespace ConnectLocalData
             this.fillByArtikal1ToolStripButton.Size = new System.Drawing.Size(50, 22);
             this.fillByArtikal1ToolStripButton.Text = "Pretraži";
             this.fillByArtikal1ToolStripButton.Click += new System.EventHandler(this.fillByArtikal1ToolStripButton_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(39, 22);
-            this.toolStripButton1.Text = "Reset";
-            this.toolStripButton1.Click += new System.EventHandler(this.resetToolStripButton_Click);
             // 
             // toolStripButton2
             // 
@@ -383,8 +365,6 @@ namespace ConnectLocalData
         private System.Windows.Forms.ToolStrip fillByArtikal1ToolStrip;
         private System.Windows.Forms.ToolStripTextBox artikalToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByArtikal1ToolStripButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;

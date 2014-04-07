@@ -38,6 +38,8 @@ namespace ConnectLocalData
             if (e.KeyCode == Keys.Enter)
             {
                 search();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
