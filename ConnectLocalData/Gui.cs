@@ -30,18 +30,63 @@ namespace ConnectLocalData
             // TODO: This line of code loads data into the 'sampleDatabaseDataSet.Artikli' table. You can move, or remove it, as needed.
             this.artikliTableAdapter.Fill(this.sampleDatabaseDataSet.Artikli);
 
+            MyItem[] list = new MyItem[3];
+            list[0] = new MyItem("Artikal", 1);
+            list[1] = new MyItem("Vrsta", 2);
+            list[2] = new MyItem("Šifra", 3);
+
+            //toolStripComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            toolStripComboBox1.Items.AddRange(list);
+            toolStripComboBox1.SelectedIndex = 0;
+
         }
+
 
         private void fillByArtikal1ToolStripButton_Click(object sender, EventArgs e)
         {
-            try
+            int index = toolStripComboBox1.SelectedIndex;
+
+
+            if(index == -1 || index == 0)
             {
-                this.artikliTableAdapter.FillByArtikal1(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                try
+                {
+                    this.artikliTableAdapter.FillByArtikal1(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
             }
-            catch (System.Exception ex)
+
+            else if(index == 1)
             {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
+                try
+                {
+                    this.artikliTableAdapter.FillByVrsta(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
+
             }
+
+            else if (index == 2)
+            {
+                try
+                {
+                    this.artikliTableAdapter.FillBySifra(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                }
+                catch (System.Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.Message);
+                }
+
+            }
+
+          
 
         }
 
@@ -90,6 +135,23 @@ namespace ConnectLocalData
 
             
         }
+
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
   
+    }
+
+    public class MyItem
+    {
+        public string String { get; set; }
+        public int Int { get; set; }
+        public MyItem(string s, int i) { String = s; Int = i; }
+        public override string ToString()
+        {
+            return String;
+        }
     }
 }
