@@ -29,13 +29,7 @@ namespace ConnectLocalData
         /// </summary>
 
         
-        /* static void tb_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-
-            }
-        }*/
+        
 
         private void InitializeComponent()
         {
@@ -131,6 +125,7 @@ namespace ConnectLocalData
             // 
             this.artikalToolStripTextBox.Name = "artikalToolStripTextBox";
             this.artikalToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            this.artikalToolStripTextBox.KeyDown += new KeyEventHandler(tb_KeyDown);
             // 
             // fillByArtikal1ToolStripButton
             // 

@@ -17,13 +17,6 @@ namespace ConnectLocalData
             InitializeComponent();
         }
 
-        private void artikliBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-        {
-            this.Validate();
-            this.artikliBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.sampleDatabaseDataSet);
-
-        }
 
         private void Gui_Load(object sender, EventArgs e)
         {
@@ -35,62 +28,88 @@ namespace ConnectLocalData
             list[1] = new MyItem("Vrsta", 2);
             list[2] = new MyItem("Šifra", 3);
 
-            //toolStripComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-
             toolStripComboBox1.Items.AddRange(list);
             toolStripComboBox1.SelectedIndex = 0;
 
         }
 
+        void tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                search();
+            }
+        }
+
 
         private void fillByArtikal1ToolStripButton_Click(object sender, EventArgs e)
         {
-            int index = toolStripComboBox1.SelectedIndex;
 
-
-            if(index == -1 || index == 0)
-            {
-                try
-                {
-                    this.artikliTableAdapter.FillByArtikal1(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
-                }
-                catch (System.Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show(ex.Message);
-                }
-            }
-
-            else if(index == 1)
-            {
-                try
-                {
-                    this.artikliTableAdapter.FillByVrsta(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
-                }
-                catch (System.Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show(ex.Message);
-                }
-
-            }
-
-            else if (index == 2)
-            {
-                try
-                {
-                    this.artikliTableAdapter.FillBySifra(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
-                }
-                catch (System.Exception ex)
-                {
-                    System.Windows.Forms.MessageBox.Show(ex.Message);
-                }
-
-            }
-
+            search();
           
 
         }
 
-        private void resetToolStripButton_Click(object sender, EventArgs e)
+        public void search()
+        {
+            // Ako je prezan textbox, prikaži sve artikle
+            if (artikalToolStripTextBox.Text.Length == 0)
+            {
+                reset();
+            }
+
+            else
+            {
+                int index = toolStripComboBox1.SelectedIndex;
+
+
+                if (index == -1 || index == 0)
+                {
+                    try
+                    {
+                        this.artikliTableAdapter.FillByArtikal1(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+                    }
+                }
+
+                else if (index == 1)
+                {
+
+
+
+                    try
+                    {
+                        this.artikliTableAdapter.FillByVrsta(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+                    }
+
+
+                }
+
+                else if (index == 2)
+                {
+                    try
+                    {
+                        this.artikliTableAdapter.FillBySifra(this.sampleDatabaseDataSet.Artikli, artikalToolStripTextBox.Text);
+                    }
+                    catch (System.Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message);
+                    }
+
+                }
+            }
+
+            
+        }
+
+        public void reset()
         {
             try
             {
@@ -100,7 +119,11 @@ namespace ConnectLocalData
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
             }
+        }
 
+        private void resetToolStripButton_Click(object sender, EventArgs e)
+        {
+            reset();
         }
 
         private void AboutButton_Click(object sender, EventArgs e)
