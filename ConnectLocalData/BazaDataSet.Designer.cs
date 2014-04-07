@@ -279,8 +279,6 @@ namespace ConnectLocalData {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ArtikliDataTable : global::System.Data.TypedTableBase<ArtikliRow> {
             
-            private global::System.Data.DataColumn columnID;
-            
             private global::System.Data.DataColumn columnArtikal;
             
             private global::System.Data.DataColumn columnVrsta;
@@ -322,14 +320,6 @@ namespace ConnectLocalData {
             protected ArtikliDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -409,10 +399,9 @@ namespace ConnectLocalData {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ArtikliRow AddArtikliRow(string ID, string Artikal, string Vrsta, string Sifra, int Kolicina, double Cijena) {
+            public ArtikliRow AddArtikliRow(string Artikal, string Vrsta, string Sifra, int Kolicina, double Cijena) {
                 ArtikliRow rowArtikliRow = ((ArtikliRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID,
                         Artikal,
                         Vrsta,
                         Sifra,
@@ -421,13 +410,6 @@ namespace ConnectLocalData {
                 rowArtikliRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowArtikliRow);
                 return rowArtikliRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ArtikliRow FindByID(string ID) {
-                return ((ArtikliRow)(this.Rows.Find(new object[] {
-                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -447,7 +429,6 @@ namespace ConnectLocalData {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnID = base.Columns["ID"];
                 this.columnArtikal = base.Columns["Artikal"];
                 this.columnVrsta = base.Columns["Vrsta"];
                 this.columnSifra = base.Columns["Sifra"];
@@ -458,8 +439,6 @@ namespace ConnectLocalData {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
                 this.columnArtikal = new global::System.Data.DataColumn("Artikal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArtikal);
                 this.columnVrsta = new global::System.Data.DataColumn("Vrsta", typeof(string), null, global::System.Data.MappingType.Element);
@@ -470,11 +449,6 @@ namespace ConnectLocalData {
                 base.Columns.Add(this.columnKolicina);
                 this.columnCijena = new global::System.Data.DataColumn("Cijena", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCijena);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AllowDBNull = false;
-                this.columnID.Unique = true;
-                this.columnID.MaxLength = 5;
                 this.columnArtikal.AllowDBNull = false;
                 this.columnArtikal.MaxLength = 40;
                 this.columnVrsta.MaxLength = 30;
@@ -617,17 +591,6 @@ namespace ConnectLocalData {
             internal ArtikliRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableArtikli = ((ArtikliDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ID {
-                get {
-                    return ((string)(this[this.tableArtikli.IDColumn]));
-                }
-                set {
-                    this[this.tableArtikli.IDColumn] = value;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -913,7 +876,6 @@ namespace ConnectLocalData.SampleDatabaseDataSetTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Artikli";
-            tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("Artikal", "Artikal");
             tableMapping.ColumnMappings.Add("Vrsta", "Vrsta");
             tableMapping.ColumnMappings.Add("Sifra", "Sifra");
@@ -936,11 +898,9 @@ namespace ConnectLocalData.SampleDatabaseDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cijena", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cijena", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Artikli] ([ID], [Artikal], [Vrsta], [Sifra], [Kolicina], [Cije" +
-                "na]) VALUES (@ID, @Artikal, @Vrsta, @Sifra, @Kolicina, @Cijena);\r\nSELECT ID, Art" +
-                "ikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Artikli] ([Artikal], [Vrsta], [Sifra], [Kolicina], [Cijena]) VALUES " +
+                "(@Artikal, @Vrsta, @Sifra, @Kolicina, @Cijena)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artikal", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Artikal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Vrsta", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Vrsta", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sifra", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sifra", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -979,27 +939,21 @@ SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM dbo.Artikli";
+            this._commandCollection[0].CommandText = "SELECT Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID,Artikal, Vrsta, Sifra, Kolicina, Cijena FROM dbo.Artikli\r\nWHERE (Artika" +
-                "l LIKE \'%\' + @Artikal + \'%\')";
+            this._commandCollection[1].CommandText = "SELECT Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (Artikal LIKE \'" +
+                "%\' + @Artikal + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artikal", global::System.Data.SqlDbType.NVarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "Artikal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        ID, Artikal, Vrsta, Sifra, Kolicina, Cijena\r\nFROM            Artikl" +
-                "i\r\nWHERE        (Artikal LIKE \'%\' + @Artikal + \'%\')";
+            this._commandCollection[2].CommandText = "SELECT Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Artikal", global::System.Data.SqlDbType.NVarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "Artikal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM dbo.Artikli";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1030,7 +984,7 @@ SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByArtikal(SampleDatabaseDataSet.ArtikliDataTable dataTable, string Artikal) {
+        public virtual int FillByArtikal1(SampleDatabaseDataSet.ArtikliDataTable dataTable, string Artikal) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((Artikal == null)) {
                 throw new global::System.ArgumentNullException("Artikal");
@@ -1049,27 +1003,8 @@ SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillByArtikal1(SampleDatabaseDataSet.ArtikliDataTable dataTable, string Artikal) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
-            if ((Artikal == null)) {
-                throw new global::System.ArgumentNullException("Artikal");
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Artikal));
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
         public virtual int Reset(SampleDatabaseDataSet.ArtikliDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1175,42 +1110,36 @@ SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ID, string Artikal, string Vrsta, string Sifra, global::System.Nullable<int> Kolicina, global::System.Nullable<double> Cijena) {
-            if ((ID == null)) {
-                throw new global::System.ArgumentNullException("ID");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID));
-            }
+        public virtual int Insert(string Artikal, string Vrsta, string Sifra, global::System.Nullable<int> Kolicina, global::System.Nullable<double> Cijena) {
             if ((Artikal == null)) {
                 throw new global::System.ArgumentNullException("Artikal");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Artikal));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Artikal));
             }
             if ((Vrsta == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Vrsta));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Vrsta));
             }
             if ((Sifra == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Sifra");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Sifra));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Sifra));
             }
             if ((Kolicina.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(Kolicina.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Kolicina.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Cijena.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(Cijena.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((Cijena.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(Cijena.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1327,14 +1256,6 @@ SELECT ID, Artikal, Vrsta, Sifra, Kolicina, Cijena FROM Artikli WHERE (ID = @ID)
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Artikal, string Vrsta, string Sifra, global::System.Nullable<int> Kolicina, global::System.Nullable<double> Cijena, string Original_ID, string Original_Artikal, string Original_Vrsta, string Original_Sifra, global::System.Nullable<int> Original_Kolicina, global::System.Nullable<double> Original_Cijena) {
-            return this.Update(Original_ID, Artikal, Vrsta, Sifra, Kolicina, Cijena, Original_ID, Original_Artikal, Original_Vrsta, Original_Sifra, Original_Kolicina, Original_Cijena);
         }
     }
     

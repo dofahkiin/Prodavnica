@@ -62,6 +62,34 @@ namespace ConnectLocalData
         {
             MessageBox.Show("Program razvili:\nMiloš Mandarić i Vladimir Budinčić", "O programu");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //this.artikliTableAdapter.Insert("Test", "Test", "9999", 2, 90);
+
+            if( textBox1.Text.Length == 0 ||
+                textBox2.Text.Length == 0 ||
+                textBox3.Text.Length == 0 ||
+                textBox4.Text.Length == 0 ||
+                textBox5.Text.Length == 0)
+            {
+                MessageBox.Show("Niste unijeli sve potrebne podatke!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            else
+            {
+                this.artikliTableAdapter.Insert(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt16(textBox4.Text), Convert.ToSingle(textBox5.Text));
+                this.artikliTableAdapter.Reset(this.sampleDatabaseDataSet.Artikli);
+
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+            }
+
+            
+        }
   
     }
 }
