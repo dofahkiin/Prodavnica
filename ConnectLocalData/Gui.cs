@@ -31,6 +31,13 @@ namespace ConnectLocalData
             toolStripComboBox1.Items.AddRange(list);
             toolStripComboBox1.SelectedIndex = 0;
 
+            updateTableRows();
+
+        }
+
+        void updateTableRows()
+        {
+            toolStripStatusLabel1.Text = string.Format("Broj artikala: {0}", artikliDataGridView.RowCount);
         }
 
         void tb_KeyDown(object sender, KeyEventArgs e)
@@ -108,6 +115,8 @@ namespace ConnectLocalData
                 }
             }
 
+            updateTableRows();
+
             
         }
 
@@ -161,10 +170,7 @@ namespace ConnectLocalData
             
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
 
-        }
 
   
     }

@@ -65,6 +65,8 @@ namespace ConnectLocalData
             this.tableAdapterManager = new ConnectLocalData.SampleDatabaseDataSetTableAdapters.TableAdapterManager();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fillByArtikal1ToolStrip.SuspendLayout();
@@ -73,6 +75,7 @@ namespace ConnectLocalData
             ((System.ComponentModel.ISupportInitialize)(this.sampleDatabaseDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -116,7 +119,6 @@ namespace ConnectLocalData
             this.toolStripComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.toolStripComboBox1.Name = "toolStripComboBox1";
             this.toolStripComboBox1.Size = new System.Drawing.Size(80, 25);
-            this.toolStripComboBox1.Click += new System.EventHandler(this.toolStripComboBox1_Click);
             // 
             // artikalToolStripTextBox
             // 
@@ -213,7 +215,7 @@ namespace ConnectLocalData
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(550, 498);
+            this.tabPage2.Size = new System.Drawing.Size(551, 413);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Unos";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -336,11 +338,28 @@ namespace ConnectLocalData
             this.oProgramuToolStripMenuItem.Text = "O Programu";
             this.oProgramuToolStripMenuItem.Click += new System.EventHandler(this.AboutButton_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 465);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(559, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(42, 17);
+            this.toolStripStatusLabel1.Text = "Status:";
+            // 
             // Gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 548);
+            this.ClientSize = new System.Drawing.Size(559, 487);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -360,6 +379,8 @@ namespace ConnectLocalData
             this.tabPage2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,5 +418,7 @@ namespace ConnectLocalData
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem oProgramuToolStripMenuItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
