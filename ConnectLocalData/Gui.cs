@@ -50,6 +50,21 @@ namespace ConnectLocalData
             }
         }
 
+        private void tabControl1_SelectedIndexChanged(Object sender, EventArgs e)
+        {
+
+            if(tabControl1.SelectedIndex == 1)
+            {
+                toolStripStatusLabel1.Text = "Unos artikla:";
+            }
+
+            else
+            {
+                updateTableRows();
+            }
+
+        }
+
 
         private void fillByArtikal1ToolStripButton_Click(object sender, EventArgs e)
         {
@@ -165,6 +180,8 @@ namespace ConnectLocalData
                 textBox3.Clear();
                 textBox4.Clear();
                 textBox5.Clear();
+
+                toolStripStatusLabel1.Text = "Unos artikla: artikal unijet!";
             }
 
             
