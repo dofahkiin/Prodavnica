@@ -41,7 +41,6 @@ namespace ConnectLocalData
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.artikalToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.fillByArtikal1ToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.artikliDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +63,8 @@ namespace ConnectLocalData
             this.button1 = new System.Windows.Forms.Button();
             this.artikliTableAdapter = new ConnectLocalData.SampleDatabaseDataSetTableAdapters.ArtikliTableAdapter();
             this.tableAdapterManager = new ConnectLocalData.SampleDatabaseDataSetTableAdapters.TableAdapterManager();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.oProgramuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.fillByArtikal1ToolStrip.SuspendLayout();
@@ -71,16 +72,17 @@ namespace ConnectLocalData
             ((System.ComponentModel.ISupportInitialize)(this.artikliBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sampleDatabaseDataSet)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(10, 12);
+            this.tabControl1.Location = new System.Drawing.Point(0, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(558, 524);
+            this.tabControl1.Size = new System.Drawing.Size(559, 439);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -91,7 +93,7 @@ namespace ConnectLocalData
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(550, 498);
+            this.tabPage1.Size = new System.Drawing.Size(551, 413);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Magacin";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -101,11 +103,10 @@ namespace ConnectLocalData
             this.fillByArtikal1ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripComboBox1,
             this.artikalToolStripTextBox,
-            this.fillByArtikal1ToolStripButton,
-            this.toolStripButton2});
+            this.fillByArtikal1ToolStripButton});
             this.fillByArtikal1ToolStrip.Location = new System.Drawing.Point(3, 3);
             this.fillByArtikal1ToolStrip.Name = "fillByArtikal1ToolStrip";
-            this.fillByArtikal1ToolStrip.Size = new System.Drawing.Size(544, 25);
+            this.fillByArtikal1ToolStrip.Size = new System.Drawing.Size(545, 25);
             this.fillByArtikal1ToolStrip.TabIndex = 2;
             this.fillByArtikal1ToolStrip.Text = "fillByArtikal1ToolStrip";
             // 
@@ -132,17 +133,6 @@ namespace ConnectLocalData
             this.fillByArtikal1ToolStripButton.Text = "Pretraži";
             this.fillByArtikal1ToolStripButton.Click += new System.EventHandler(this.fillByArtikal1ToolStripButton_Click);
             // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(76, 22);
-            this.toolStripButton2.Text = "O programu";
-            this.toolStripButton2.Click += new System.EventHandler(this.AboutButton_Click);
-            // 
             // artikliDataGridView
             // 
             this.artikliDataGridView.AllowUserToAddRows = false;
@@ -159,7 +149,7 @@ namespace ConnectLocalData
             this.artikliDataGridView.Location = new System.Drawing.Point(3, 31);
             this.artikliDataGridView.Name = "artikliDataGridView";
             this.artikliDataGridView.ReadOnly = true;
-            this.artikliDataGridView.Size = new System.Drawing.Size(543, 461);
+            this.artikliDataGridView.Size = new System.Drawing.Size(543, 379);
             this.artikliDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn2
@@ -328,13 +318,33 @@ namespace ConnectLocalData
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.UpdateOrder = ConnectLocalData.SampleDatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.oProgramuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(559, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // oProgramuToolStripMenuItem
+            // 
+            this.oProgramuToolStripMenuItem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.oProgramuToolStripMenuItem.Name = "oProgramuToolStripMenuItem";
+            this.oProgramuToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.oProgramuToolStripMenuItem.Text = "O Programu";
+            this.oProgramuToolStripMenuItem.Click += new System.EventHandler(this.AboutButton_Click);
+            // 
             // Gui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 548);
+            this.ClientSize = new System.Drawing.Size(559, 548);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Gui";
             this.Text = "Prodavnica Računara";
             this.Load += new System.EventHandler(this.Gui_Load);
@@ -348,7 +358,10 @@ namespace ConnectLocalData
             ((System.ComponentModel.ISupportInitialize)(this.sampleDatabaseDataSet)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -365,7 +378,6 @@ namespace ConnectLocalData
         private System.Windows.Forms.ToolStrip fillByArtikal1ToolStrip;
         private System.Windows.Forms.ToolStripTextBox artikalToolStripTextBox;
         private System.Windows.Forms.ToolStripButton fillByArtikal1ToolStripButton;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
@@ -383,5 +395,7 @@ namespace ConnectLocalData
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem oProgramuToolStripMenuItem;
     }
 }
