@@ -33,6 +33,8 @@ namespace ConnectLocalData
 
             updateTableRows();
 
+
+
         }
 
         void updateTableRows()
@@ -167,7 +169,63 @@ namespace ConnectLocalData
                 textBox4.Text.Length == 0 ||
                 textBox5.Text.Length == 0)
             {
-                MessageBox.Show("Niste unijeli sve potrebne podatke!", "Greška!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+               if (textBox1.Text.Length == 0)
+               {
+                   this.panel1.BackColor = System.Drawing.Color.Red;
+                   this.label6.Visible = true;
+               }
+               else
+               {
+                   this.panel1.BackColor = System.Drawing.Color.White;
+                   this.label6.Visible = false;
+               }
+
+               if (textBox2.Text.Length == 0)
+               {
+                   this.panel2.BackColor = System.Drawing.Color.Red;
+                   this.label7.Visible = true;
+               }
+               else
+               {
+                   this.panel2.BackColor = System.Drawing.Color.White;
+                   this.label7.Visible = false;
+               }
+
+               if (textBox3.Text.Length == 0)
+               {
+                   this.panel3.BackColor = System.Drawing.Color.Red;
+                   this.label8.Visible = true;
+               }
+               else
+               {
+                   this.panel3.BackColor = System.Drawing.Color.White;
+                   this.label8.Visible = false;
+               }
+
+               if (textBox4.Text.Length == 0)
+               {
+                   this.panel4.BackColor = System.Drawing.Color.Red;
+                   this.label9.Visible = true;
+               }
+               else
+               {
+                   this.panel4.BackColor = System.Drawing.Color.White;
+                   this.label9.Visible = false;
+               }
+
+               if (textBox5.Text.Length == 0)
+               {
+                   this.panel5.BackColor = System.Drawing.Color.Red;
+                   this.label10.Visible = true;
+               }
+               else
+               {
+                   this.panel5.BackColor = System.Drawing.Color.White;
+                   this.label10.Visible = false;
+               }
+
+               toolStripStatusLabel1.Text = "Unos artikla: niste unijeli sva polja!";
+
             }
 
             else
@@ -182,14 +240,19 @@ namespace ConnectLocalData
                 textBox5.Clear();
 
                 toolStripStatusLabel1.Text = "Unos artikla: artikal unijet!";
+
+                this.panel1.BackColor = System.Drawing.Color.White;
+                this.panel2.BackColor = System.Drawing.Color.White;
+                this.panel3.BackColor = System.Drawing.Color.White;
+                this.panel4.BackColor = System.Drawing.Color.White;
+                this.panel5.BackColor = System.Drawing.Color.White;
+                this.label6.Visible = false;
+                this.label7.Visible = false;
+                this.label8.Visible = false;
+                this.label9.Visible = false;
+                this.label10.Visible = false;
             }
-
-            
         }
-
-
-
-  
     }
 
     public class MyItem
