@@ -230,27 +230,37 @@ namespace ConnectLocalData
 
             else
             {
-                this.artikliTableAdapter.Insert(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt16(textBox4.Text), Convert.ToSingle(textBox5.Text));
-                this.artikliTableAdapter.Reset(this.sampleDatabaseDataSet.Artikli);
+                try
+                {
+                    this.artikliTableAdapter.Insert(textBox1.Text, textBox2.Text, textBox3.Text, Convert.ToInt16(textBox4.Text), Convert.ToSingle(textBox5.Text));
 
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
+                    this.artikliTableAdapter.Reset(this.sampleDatabaseDataSet.Artikli);
 
-                toolStripStatusLabel1.Text = "Unos artikla: artikal unijet!";
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    textBox3.Clear();
+                    textBox4.Clear();
+                    textBox5.Clear();
 
-                this.panel1.BackColor = System.Drawing.Color.White;
-                this.panel2.BackColor = System.Drawing.Color.White;
-                this.panel3.BackColor = System.Drawing.Color.White;
-                this.panel4.BackColor = System.Drawing.Color.White;
-                this.panel5.BackColor = System.Drawing.Color.White;
-                this.label6.Visible = false;
-                this.label7.Visible = false;
-                this.label8.Visible = false;
-                this.label9.Visible = false;
-                this.label10.Visible = false;
+                    toolStripStatusLabel1.Text = "Unos artikla: artikal unijet!";
+
+                    this.panel1.BackColor = System.Drawing.Color.White;
+                    this.panel2.BackColor = System.Drawing.Color.White;
+                    this.panel3.BackColor = System.Drawing.Color.White;
+                    this.panel4.BackColor = System.Drawing.Color.White;
+                    this.panel5.BackColor = System.Drawing.Color.White;
+                    this.label6.Visible = false;
+                    this.label7.Visible = false;
+                    this.label8.Visible = false;
+                    this.label9.Visible = false;
+                    this.label10.Visible = false;
+                }
+                catch (System.Data.SqlClient.SqlException)
+                {
+                    System.Windows.Forms.MessageBox.Show("Unijeli ste već postojeću šifru, molimo pokušajte ponovo.");
+                }
+                
+               
             }
         }
     }
